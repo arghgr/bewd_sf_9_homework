@@ -18,8 +18,7 @@ class ArticlesController < ApplicationController
 
   def create
     # render plain: params[:article].inspect
-    # @article = Article.new(article_params)
-    @article = Article.new(params.require(:article).permit(:title, :text))
+    @article = Article.new(article_params)
 
     if @article.save
       redirect_to @article
@@ -31,8 +30,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
 
-    # if @article.update(article_params)
-    if @article.update(params.require(:article).permit(:title, :text))
+    if @article.update(article_params)
       redirect_to @article
     else
       render 'edit'
@@ -46,9 +44,9 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
-#   private
-#
-#   def article_params
-#     params.require(:article).permit(:title, :text)
-#   end
+  private
+
+  def article_params
+    params.require(:article).permit(:title, :text)
+  end
 end
