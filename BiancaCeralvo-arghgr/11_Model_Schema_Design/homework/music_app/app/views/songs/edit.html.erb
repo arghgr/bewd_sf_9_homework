@@ -1,0 +1,6 @@
+<h1>Edit <%= @song.title %></h1>
+<%= simple_form_for @song do |f| %>
+  <%= f.input :title, label: false, placeholder: "Title" %>
+  <%= f.association :artist, label_method: :name, prompt: "Pick an artist" %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Add new song</h1>
+<p>
+<%= simple_form_for @song do |f| %>
+  <%= f.input :title, label: false, placeholder: "Title" %>
+  <%= f.association :artist %>
+  <%= f.submit "Add".html_safe, class: "btn btn-sm btn-primary" %>
+<% end %>
+</p>
