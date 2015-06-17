@@ -1,0 +1,36 @@
+<h1>Record Labels</h1>
+
+<div class="col-md-12">
+  <table class="table table-striped table-hover">
+  <tr>
+    <th>
+      Record Label Name
+    </th>
+    <th>
+      Artists
+    </th>
+    <th>
+      Actions
+    </th>
+  </tr>
+  <% @record_labels.each do |record_label| %>
+    <tr>
+      <td>
+        <%= record_label.name %>
+      </td>
+      <td>
+        <% record_label.artists.each do |artist| %>
+          <%= artist.name %><br>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Show", record_label_path(record_label), class: "btn btn-xs btn-info" %>
+        <%= link_to "Edit", edit_record_label_path(record_label), class: "btn btn-xs btn-success" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
+<%= link_to "Add Record Label", new_record_label_path %>
+<br><%= link_to "See All Artists", artists_path %>
+<br><%= link_to "See All Songs", songs_path %>

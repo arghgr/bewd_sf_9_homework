@@ -1,17 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :record_labels
+
   resources :artists
-  # get 'artists/new'
-  # get 'artists/create'
-  # get 'artists/edit'
-  # get 'artists/update'
-  # get 'artists/index'
 
   resources :songs
-  # get 'songs/new'
-  # get 'songs/create'
-  # get 'songs/edit'
-  # get 'songs/update'
 
   root 'songs#index'
 

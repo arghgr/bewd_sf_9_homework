@@ -1,0 +1,6 @@
+<h1>Edit <%= @record_label.name %></h1>
+<%= simple_form_for @record_label do |f| %>
+  <%= f.input :name, label: false, placeholder: "Label Name" %>
+  <%= f.association :artists, label_method: :name, prompt: "Pick artists" %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,0 +1,8 @@
+<h1><%= @artist.name %></h1>
+<p>
+  <% if @artist.record_label %>
+    Record Label: <%= @artist.record_label.name %>
+  <% end %>
+</p>
+<br><%= link_to "Edit", edit_artist_path, class: "btn btn-sm btn-success" %>
+<br><%= link_to "Back", artists_path, class: "btn btn-sm btn-default" %>

@@ -1,0 +1,15 @@
+<h1><%= @record_label.name %></h1>
+<p>
+  Artists:
+</p>
+<p>
+  <% @record_label.artists.each do |artist| %>
+    <%= artist.name %><br>
+  <% end %>
+</p>
+<p>
+  <%= link_to "Edit", edit_record_label_path, class: "btn btn-sm btn-success" %>
+</p>
+<p>
+  <%= link_to "Back", record_labels_path, class: "btn btn-sm btn-default" %>
+</p>

@@ -6,27 +6,38 @@
     <th>
       Artist Name
     </th>
-    <td>
+    <th>
+      Record Label
+    </th>
+    <th>
       Songs
-    </td>
+    </th>
     <th>
       Actions
     </th>
   </tr>
-  <% @artists.each do |song| %>
+  <% @artists.each do |artist| %>
     <tr>
       <td>
-        <%= song.title %>
+        <%= artist.name %>
       </td>
       <td>
-        <%= song.artist %>
+        <% if artist.record_label %>
+          <%= artist.record_label.name %>
+        <% end %>
       </td>
       <td>
-        <%= link_to "Show", song_path(song), class: "btn btn-xs btn-info" %>
-        <%= link_to "Edit", edit_song_path(song), class: "btn btn-xs btn-success" %>
+        <% artist.songs.each do |song| %>
+          <%= song.title %><br>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Show", artist_path(artist), class: "btn btn-xs btn-info" %>
+        <%= link_to "Edit", edit_artist_path(artist), class: "btn btn-xs btn-success" %>
       </td>
     </tr>
   <% end %>
   </table>
 </div>
-<%= link_to "Add Song", new_song_path %>
+<%= link_to "Add Artist", new_artist_path %>
+<br><%= link_to "See All Songs", songs_path %>

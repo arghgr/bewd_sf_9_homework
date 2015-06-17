@@ -1,0 +1,7 @@
+<h1>Add new record label</h1>
+<p>
+<%= simple_form_for @record_label do |f| %>
+  <%= f.input :name, label: false, placeholder: "Label Name" %>
+  <%= f.submit "Add".html_safe, class: "btn btn-sm btn-primary" %>
+<% end %>
+</p>
