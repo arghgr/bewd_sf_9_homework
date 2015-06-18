@@ -15,9 +15,9 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     if @song.save
-      redirect_to songs_path, notice: "Song successfully added."
+      redirect_to songs_path
     else
-      render 'new', notice: "Song creation not successful."
+      render 'new'
     end
   end
 
@@ -28,9 +28,9 @@ class SongsController < ApplicationController
   def update
     @song = set_song
     if @song.update(song_params)
-      redirect_to song_path(@song), notice: "Song successfully updated."
+      redirect_to song_path(@song)
     else
-      render "edit", notice: "Song update not successful."
+      render "edit"
     end
   end
 

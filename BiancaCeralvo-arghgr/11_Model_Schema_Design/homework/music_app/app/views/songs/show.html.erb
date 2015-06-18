@@ -1,5 +1,10 @@
 <h1><%= @song.title %></h1>
 <p>
+  <% if @song.artist %>
+    Artist: <%= @song.artist.name %>
+  <% end %>
+</p>
+<p>
   <%= link_to "Edit", edit_song_path, class: "btn btn-sm btn-success" %>
 </p>
 <p>
