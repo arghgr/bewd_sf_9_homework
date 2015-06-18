@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   resources :record_labels
-
   resources :artists
-
   resources :songs
 
   root to: 'songs#index'
+
+  devise_scope :user do
+    get "/sign_in", to: "devise/sessions#new", as: "sign_in"
+    delete "/sign_out", to: "devise/sessions#destroy", as: "sign_out"
+    get "/sign_up", to: "devise/registrations#new", as: "sign_up"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
